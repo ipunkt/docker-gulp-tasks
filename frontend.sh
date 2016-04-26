@@ -1,7 +1,10 @@
 #!/bin/bash
 
 IMAGE="ipunktbs/gulp-tasks"
-RUNCOMMAND="docker run  -it --rm -v $(pwd):/var/project $IMAGE"
+USERID=$(id -u)
+GROUPID=$(id -g)
+RUNCOMMAND="docker run  -it --rm --user $USERID:$GROUPID -v $(pwd):/var/project $IMAGE"
+echo "$RUNCOMMAND"
 
 function help {
 	echo "$0 [COMMAND]"
