@@ -3,7 +3,7 @@
 IMAGE="ipunktbs/gulp-tasks"
 USERID=$(id -u)
 GROUPID=$(id -g)
-RUNCOMMAND="docker run  -it --rm --user $USERID:$GROUPID -v $(pwd):/var/project $IMAGE"
+RUNCOMMAND="docker run  -it --rm --user $USERID:$GROUPID -v $(pwd):/home/gulp/project $IMAGE"
 
 function help {
 

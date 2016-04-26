@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd /var/project
+cd $HOME
 $*
