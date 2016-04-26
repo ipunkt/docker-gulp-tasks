@@ -1,6 +1,7 @@
 #!/bin/bash
 
-RUNCOMMAND="docker run  -it --rm -v $(pwd):/var/project ipunktbs/docker-gulp-tasks"
+IMAGE="ipunktbs/gulp-tasks"
+RUNCOMMAND="docker run  -it --rm -v $(pwd):/var/project $IMAGE"
 
 function help {
 	echo "$0 [COMMAND]"
