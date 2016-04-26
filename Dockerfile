@@ -13,7 +13,7 @@ RUN npm install -g gulp-cli bower browserify ractive \
 	; npm config set cache /var/cache/npm
 
 # Install gulp dependencies
-RUN cd /home/gulp && npm install --save-dev gulp
+RUN cd /home/gulp && npm install --save-dev gulp \
 	gulp-jshint \
 	gulp-sass \
 	gulp-concat \
