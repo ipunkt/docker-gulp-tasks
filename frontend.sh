@@ -4,14 +4,34 @@ IMAGE="ipunktbs/gulp-tasks"
 USERID=$(id -u)
 GROUPID=$(id -g)
 RUNCOMMAND="docker run  -it --rm --user $USERID:$GROUPID -v $(pwd):/var/project $IMAGE"
-echo "$RUNCOMMAND"
 
 function help {
+
+	echo "==== frontend build helper ===="
+
+	case $COMMAND in
+		run)
+			echo "$0 run command"
+			echo ""
+			echo "Startet command im Projektverzeichnis innerhalb des Containers"
+			exit
+			;;
+	esac
+
+
 	echo "$0 [COMMAND]"
-	echo
+	echo ""
 	echo "Commands"
+	echo "== run =="
+	echo "Startet den angefügten Befehl im Projektverzeichnis"
+	echo ""
+	echo ""
 	echo "== build =="
+	echo "Startet  gulp im Projektverzeichnis im Container"
+	echo
 	echo "== watch =="
+	echo "Startet gulp watch im Projektverzeichnis im Container"
+	echo
 	return
 }
 
@@ -23,6 +43,10 @@ case $COMMAND in
 		$RUNCOMMAND gulp
 		;;
 	run)
+		if [ "$#" -lt 1 ] ; then
+			help $COMMAND
+			exit 1
+		fi
 		$RUNCOMMAND $@
 		;;
 	watch)
