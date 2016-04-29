@@ -29,6 +29,10 @@ function help {
 	echo "== build =="
 	echo "Startet  gulp im Projektverzeichnis im Container"
 	echo
+	echo "== update =="
+	echo "Holt die neuste Version des Docker Images von Dockerhub"
+	echo ""
+	echo ""
 	echo "== watch =="
 	echo "Startet gulp watch im Projektverzeichnis im Container"
 	echo
@@ -39,6 +43,9 @@ COMMAND=$1
 shift
 
 case $COMMAND in
+	update)
+		docker pull $IMAGE
+		;;
 	build)
 		$RUNCOMMAND gulp
 		;;
