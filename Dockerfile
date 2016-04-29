@@ -25,4 +25,7 @@ CMD chmod +x /entrypoint.sh
 # as the base path to store configuration
 ENV HOME=/home/gulp
 
-ENTRYPOINT ["/entrypoint.sh"]
+# Use phusion/baseimage-docker my_init script for proper pid 1 handling
+ADD my_init /
+CMD chmod 775 "/my_init"
+ENTRYPOINT ["/my_init", "/entrypoint.sh"]
