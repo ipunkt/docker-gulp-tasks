@@ -6,22 +6,23 @@
   "dependencies": {},
   "devDependencies": {
     "require-dir": "^0.3.0",
-    "path": "*",
 
-    "gulp": "^3.9.1",
-    "gulp-watch": "^3.9.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-jshint": "^2.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.1",
-    "gulp-shell": "^0.5.2",
-    "gulp-uglify": "^1.5.3",
+    "gulp": "^3.9.0",
+    "gulp-watch": "^4.3.0",
+    "gulp-sass": "^2.3.0",
+    "gulp-sequence": "^0.4.5",
+    "gulp-if": "^2.0.0",
+    "browser-sync": "^2.12.5",
+    "gulp-sourcemaps": "^2.0.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cssnano": "^2.1.2"
 
-    "browserify": "^13.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build",
+    "build:dev": "gulp build:dev",
+    "watch": "gulp watch"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "ipunkt Business Solutions / info@ipunkt.biz",
+  "license": "MIT"
 }

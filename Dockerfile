@@ -1,4 +1,4 @@
-FROM node:6.0-slim
+FROM node:5.11
 
 # browser-sync port
 EXPOSE 3001
