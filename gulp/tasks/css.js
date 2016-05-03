@@ -28,5 +28,6 @@ gulp.task('css', function() {
 });
 
 gulp.task('css:watch', function(){
+    global.development = true;
     gulp.watch(paths.src, ['css']);
 });
