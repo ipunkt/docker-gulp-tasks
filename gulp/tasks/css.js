@@ -26,3 +26,7 @@ gulp.task('css', function() {
         .pipe(gulp.dest(paths.dest))
         .pipe(gulpif(global.development, browserSync.stream()))
 });
+
+gulp.task('css:watch', function(){
+    gulp.watch(paths.src, ['css']);
+});
