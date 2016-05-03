@@ -41,17 +41,17 @@ function help {
 }
 
 COMMAND=$1
-shift
 
 case $COMMAND in
 	update)
 		docker pull $IMAGE
 		;;
 	run)
-		if [ "$#" -lt 1 ] ; then
+		if [ "$#" -lt 2 ] ; then
 			help $COMMAND
 			exit 1
 		fi
+		shift
 		$RUNCOMMAND $@
 		;;
 	*)
