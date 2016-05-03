@@ -1,8 +1,21 @@
 {
   "root": {
-    "src": "./src",
-    "dest": "./public"
+    "src": "./project/src",
+    "dest": "./project/public"
   },
 
-  "tasks": {}
+  "tasks": {
+    "css": {
+      "src": "scss",
+      "dest": "css",
+      "autoprefixer": {
+        "browsers": ["last 3 version"]
+      },
+      "sass": {
+        "indentedSyntax": false,
+        "includePaths": []
+      },
+      "extensions": ["sass", "scss", "css"]
+    }
+  }
 }
