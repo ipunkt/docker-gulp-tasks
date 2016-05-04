@@ -1,7 +1,4 @@
 var gulp   = require('gulp');
 
-gulp.task('watch', function() {
-    console.log('INSERT YOUR watch-Task here');
-});
-
+gulp.task('watch', ['css:watch']);
 gulp.task('build', ['css']);
