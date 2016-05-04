@@ -25,8 +25,8 @@ gulp.task('css', function() {
         .pipe(gulpif(!global.development, cssnano({autoprefixer: false})))
         .pipe(gulpif(global.development, sourcemaps.write()))
         .pipe(gulp.dest(paths.dest)) //output files
-        .pipe(gulpif(!global.development, gzip())) //gzip AFTER output; this should keep the original files
-        .pipe(gulpif(!global.development, gulp.dest(paths.dest))) //output gzipped files
+        .pipe(gulpif(!global.development && config.tasks.css.gzip, gzip())) //gzip AFTER output; this should keep the original files
+        .pipe(gulpif(!global.development && config.tasks.css.gzip, gulp.dest(paths.dest))) //output gzipped files
         .pipe(gulpif(global.development, browserSync.stream()))
 });
 

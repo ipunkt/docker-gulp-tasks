@@ -8,6 +8,7 @@
     "css": {
       "src": "scss",
       "dest": "css",
+      "gzip": true,
       "autoprefixer": {
         "browsers": ["last 3 version"]
       },
