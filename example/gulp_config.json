@@ -17,6 +17,16 @@
         "includePaths": []
       },
       "extensions": ["sass", "scss", "css"]
+    },
+    "browserify": {
+      "src": "js",
+      "dest": "js",
+      "gzip": true,
+      "transforms": {
+        "ractify": {
+          "extension": "html"
+        }
+      }
     }
   }
 }
