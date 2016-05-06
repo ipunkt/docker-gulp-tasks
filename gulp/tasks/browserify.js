@@ -51,7 +51,7 @@ function browserifyTask(watch) {
     }
 
     //only relevant for watchify
-    bundler.on('update', function() {
+    b.on('update', function() {
         bundle();
     });
     return bundle();
