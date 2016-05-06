@@ -19,7 +19,7 @@
       "extensions": ["sass", "scss", "css"]
     },
     "browserify": {
-      "src": "js",
+      "src": "js/entry.js",
       "dest": "js",
       "gzip": true,
       "transforms": {

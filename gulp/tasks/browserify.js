@@ -11,6 +11,8 @@ var uglify = require('gulp-uglify');
 var browserSync = require('browser-sync');
 var sourcemaps = require('gulp-sourcemaps');
 var gzip = require('gulp-gzip');
+var browserify = require('browserify');
+var watchify = require('watchify');
 var path = require('path');
 
 var paths = {
