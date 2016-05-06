@@ -27,6 +27,13 @@
           "extension": "html"
         }
       }
-    }
+    },
+    "copy": [
+      {
+        "src": "static/*",
+        "base": "static",
+        "dest": "."
+      }
+    ]
   }
 }
