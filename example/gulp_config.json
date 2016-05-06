@@ -1,7 +1,7 @@
 {
   "root": {
-    "src": "/src",
-    "dest": "/public"
+    "src": "src",
+    "dest": "public"
   },
 
   "tasks": {
