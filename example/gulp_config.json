@@ -20,7 +20,7 @@
     },
     "browserify": {
       "src": "js/entry.js",
-      "dest": "js",
+      "dest": "js/bundle.js",
       "gzip": true,
       "transforms": {
         "ractify": {

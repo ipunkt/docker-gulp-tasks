@@ -17,29 +17,37 @@ var path = require('path');
 
 var paths = {
     src: path.join(config.root.src, config.tasks.browserify.src),
-    dest: path.join(config.root.dest, config.tasks.browserify.dest)
+    dest: path.join(config.root.dest, path.dirname(config.tasks.browserify.dest)),
+    destBase: path.basename(config.tasks.browserify.dest)
 };
 
 function browserifyTask(watch) {
-    var props = {
-        entries: paths.src
-    };
+    var b = browserify({
+        entries: paths.src,
+        cache : {},
+        packageCache: {}
+    });
 
-    //choose between browserify and watchify
-    var b = watch ? watchify(props) : browserify(props);
+    if (watch) {
+        b.plugin(watchify, {
+            delay: 500,
+            ignoreWatch: ['**/node_modules/**'],
+            poll: true
+        });
+    }
 
     //iterate through every transform in config and call them
-    for(var transform in config.tasks.transforms) {
-        if (config.tasks.transforms.hasOwnProperty(transform)) {
-            var options = config.tasks.transforms[transform];
+    for(var transform in config.tasks.browserify.transforms) {
+        if (config.tasks.browserify.transforms.hasOwnProperty(transform)) {
+            var options = config.tasks.browserify.transforms[transform];
             b.transform(options, require(transform));
         }
     }
 
     function bundle() {
-        var stream = b.bundle({debug: false});
+        var stream = b.bundle();
         return stream.on('error', gutil.log)
-            .pipe(source(file))
+            .pipe(source(paths.destBase))
             .pipe(buffer())
             .pipe(gulpif(global.development, sourcemaps.init()))
             .pipe(gulpif(!global.development, uglify()))
@@ -52,7 +60,10 @@ function browserifyTask(watch) {
 
     //only relevant for watchify
     b.on('update', function() {
+        var startTime = Date.now();
         bundle();
+        var diffTime = Date.now() - startTime;
+        console.log("Finished 'browserify' after "+diffTime+" ms");
     });
     return bundle();
 }

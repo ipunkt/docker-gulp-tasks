@@ -23,6 +23,7 @@
     "gulp-uglify": "^1.5.3",
     "browserify": "^13.0.0",
     "watchify": "^3.7.0",
+    "ractive": "^0.7.3",
     "ractify": "^0.6.0"
   },
   "scripts": {
