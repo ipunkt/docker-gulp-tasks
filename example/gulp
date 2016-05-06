@@ -1,9 +1,16 @@
 #!/bin/bash
 
+INTERACTIVE="-it"
+if [ "$1" = "-n" ] ; then
+	echo "Option -n given. Running in noninteractive mode."
+	INTERACTIVE=""
+	shift
+fi
+
 IMAGE="ipunktbs/gulp-tasks"
 USERID=$(id -u)
 GROUPID=$(id -g)
-RUNCOMMAND="docker run -it --rm --user $USERID:$GROUPID -v $(pwd):/home/gulp/project $IMAGE"
+RUNCOMMAND="docker run $INTERACTIVE --rm --user $USERID:$GROUPID -v "$(pwd):/home/gulp/project" $IMAGE"
 
 function help {
 
