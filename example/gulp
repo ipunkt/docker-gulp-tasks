@@ -1,16 +1,16 @@
 #!/bin/bash
 
-INTERACTIVE="-it"
-if [ "$1" = "-n" ] ; then
-	echo "Option -n given. Running in noninteractive mode."
-	INTERACTIVE=""
-	shift
+# detect interactive or non-interactive running of the script
+if tty 2>&1 > /dev/null ; then
+        INTERACTIVE="-it"
+else
+        INTERACTIVE=""
+        echo "No terminal detected, running in non-interactive mode"
 fi
 
 IMAGE="ipunktbs/gulp-tasks"
 USERID=$(id -u)
 GROUPID=$(id -g)
-#RUNCOMMAND="docker run $INTERACTIVE --rm --user $USERID:$GROUPID -v " $IMAGE"
 RUNCOMMAND="docker"
 RUNPARAMETERS=("run" $INTERACTIVE "--rm" "--user" "$USERID:$GROUPID" -v "$(pwd):/home/gulp/project" "$IMAGE" )
 
