@@ -10,6 +10,7 @@
     "gulp": "^3.9.0",
     "vinyl-source-stream": "^1.1.0",
     "vinyl-buffer": "^1.0.0",
+    "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.0",
     "gulp-sass": "^2.3.0",
     "gulp-sequence": "^0.4.5",
