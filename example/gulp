@@ -10,7 +10,9 @@ fi
 IMAGE="ipunktbs/gulp-tasks"
 USERID=$(id -u)
 GROUPID=$(id -g)
-RUNCOMMAND="docker run $INTERACTIVE --rm --user $USERID:$GROUPID -v "$(pwd):/home/gulp/project" $IMAGE"
+#RUNCOMMAND="docker run $INTERACTIVE --rm --user $USERID:$GROUPID -v " $IMAGE"
+RUNCOMMAND="docker"
+RUNPARAMETERS=("run" $INTERACTIVE "--rm" "--user" "$USERID:$GROUPID" -v "$(pwd):/home/gulp/project" "$IMAGE" )
 
 function help {
 
@@ -59,13 +61,13 @@ case $COMMAND in
 			exit 1
 		fi
 		shift
-		$RUNCOMMAND $@
+		$RUNCOMMAND "${RUNPARAMETERS[@]}" $@
 		;;
 	*)
 		if [ "$#" -lt 1 ] ; then
 			help
 			exit 1
 		fi
-		$RUNCOMMAND npm run $@
+		$RUNCOMMAND "${RUNPARAMETERS[@]}" npm run $@
 		;;
 esac
