@@ -26,4 +26,4 @@ CMD chmod +x /entrypoint.sh
 ADD scripts/my_init /
 CMD chmod 775 "/my_init"
 
-ENTRYPOINT ["/my_init", "/entrypoint.sh"]
+ENTRYPOINT ["/my_init", "--skip-runit", "/entrypoint.sh"]
