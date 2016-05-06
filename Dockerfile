@@ -1,4 +1,5 @@
 FROM node:5.11
+MAINTAINER ipunkt Business Solutions <info@ipunkt.biz>
 
 # browser-sync port
 EXPOSE 3001
