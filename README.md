@@ -33,7 +33,7 @@ Deletes the dest/public directory as defined in your `gulp_config.json`.
 ### copy
 Copies files from one directory to another.
 Can be configured to copy as many individual files or directories as you want.
-```json
+```js
 "copy": [
   {
     "src": "YOUR_PATH/**/*", //supports glob syntax
@@ -48,7 +48,7 @@ Compiles sass and/or scss to css files using gulp-sass.
 Also contains an autoprefixer, cssnano (minify), sourcemaps and gzip.
 Sourcemaps will only be generated when running `gulp build:dev`.
 
-```json
+```js
 "css": {
   "src": "YOUR_SRC_DIR",
   "dest": "YOUR_DEST_DIR",
@@ -69,7 +69,7 @@ Browserify / Watchify task; can be configured to use transforms (currently only 
 Also contains uglify, sourcemap and gzip.
 Sourcemaps will only be generated when running `gulp build:dev`.
 
-```json
+```js
 "browserify": {
   "src": "YOUR/ENTRY/PATH/FILE.JS",
   "dest": "YOU/DEST/PATH/FILE.JS",
