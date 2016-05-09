@@ -2,7 +2,7 @@
 Docker-Image with ready-to-use Gulp-Tasks.
 
 ## Usage
-This Docker container runs by itself with your given config. We have a couple of predefined paths that you may use.
+This Docker container runs by itself with your given config. We have a couple of predefined tasks that you may use.
 
 ### Prerequisites
 You need [Docker installed](https://docs.docker.com/engine/installation/) and [your user having rights to run containers](https://docs.docker.com/engine/installation/linux/ubuntulinux/#create-a-docker-group).
