@@ -1,6 +1,6 @@
 'use strict';
 
-if(!config.tasks.browserify) return;
+if(!config.browserify) return;
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
@@ -15,9 +15,9 @@ var watchify = require('watchify');
 var path = require('path');
 
 var paths = {
-    src: path.join(config.root.src, config.tasks.browserify.src),
-    dest: path.join(config.root.dest, path.dirname(config.tasks.browserify.dest)),
-    destBase: path.basename(config.tasks.browserify.dest)
+    src: path.join(projectPath, config.browserify.src),
+    dest: path.join(projectPath, path.dirname(config.browserify.dest)),
+    destBase: path.basename(config.browserify.dest)
 };
 
 function browserifyTask(watch) {
@@ -36,9 +36,9 @@ function browserifyTask(watch) {
     }
 
     //iterate through every transform in config and call them
-    for(var transform in config.tasks.browserify.transforms) {
-        if (config.tasks.browserify.transforms.hasOwnProperty(transform)) {
-            var options = config.tasks.browserify.transforms[transform];
+    for(var transform in config.browserify.transforms) {
+        if (config.browserify.transforms.hasOwnProperty(transform)) {
+            var options = config.browserify.transforms[transform];
             b.transform(options, require(transform));
         }
     }
@@ -52,8 +52,8 @@ function browserifyTask(watch) {
             .pipe(gulpif(!global.development, uglify()))
             .pipe(gulpif(global.development, sourcemaps.write()))
             .pipe(gulp.dest(paths.dest))
-            .pipe(gulpif(!global.development && config.tasks.browserify.gzip, gzip())) //gzip AFTER output; this should keep the original files
-            .pipe(gulpif(!global.development && config.tasks.browserify.gzip, gulp.dest(paths.dest))); //output gzipped files
+            .pipe(gulpif(!global.development && config.browserify.gzip, gzip())) //gzip AFTER output; this should keep the original files
+            .pipe(gulpif(!global.development && config.browserify.gzip, gulp.dest(paths.dest))); //output gzipped files
     }
 
     //only relevant for watchify

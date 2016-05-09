@@ -28,44 +28,44 @@ Build by yourself:
 ## Tasks
 
 ### clean
-Deletes the dest/public directory as defined in your `gulp_config.json`.
+Deletes the directory as defined in your `gulp_config.json`.
+```js
+clean: {
+    path: "public/"
+}
+```
 
 ### copy
 Copies files from one directory to another.
 Can be configured to copy as many individual files or directories as you want.
 ```js
-"copy": [
+copy: [
   {
-    "src": "YOUR_PATH/**/*", //supports glob syntax
-    "base": "YOUR_BASE", //part of your path that will be your base; copy will start from here
-    "dest": "YOUR_DEST_PATH"
+    src: "YOUR_PATH/**/*", //supports glob syntax
+    base: "YOUR_BASE", //part of your path that will be your base; copy will start from here
+    dest: "YOUR_DEST_PATH"
   }
 ]
 ```
 
-### css
+### sass
 Compiles sass and/or scss to css files using gulp-sass.
 Also contains an autoprefixer, cssnano (minify), sourcemaps and gzip.
 Sourcemaps will only be generated when running `gulp build:dev`.
 
 ```js
-"css": {
-  "src": "YOUR_SRC_DIR",
-  "dest": "YOUR_DEST_DIR",
-  "gzip": true, //false if you do not want to additionally gzip your resulting css files.
-  "autoprefixer": {
-    "browsers": ["last 3 version"]
+sass: {
+  src: "YOUR_SRC_DIR",
+  dest: "YOUR_DEST_DIR",
+  gzip: true, //false if you do not want to additionally gzip your resulting css files.
+  autoprefixer: {
+    browsers: ["last 3 version"]
   },
   //choose either "sass"
-  "sass": { //see https://github.com/sass/node-sass#options
-    "indentedSyntax": false,
-    "includePaths": []
-  },
-  //or "less" depending on what you want to use
-  "less": {
-    //see https://github.com/plus3network/gulp-less#options
+  options: { //see https://github.com/sass/node-sass#options
+    indentedSyntax: false,
+    includePaths: []
   }
-  "extensions": ["sass", "scss", "css"] //sourcefile extensions you want to compile.
 }
 ```
 
