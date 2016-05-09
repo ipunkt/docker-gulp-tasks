@@ -30,7 +30,7 @@
     },
     "copy": [
       {
-        "src": "static/*",
+        "src": "static/**/*",
         "base": "static",
         "dest": "."
       }
