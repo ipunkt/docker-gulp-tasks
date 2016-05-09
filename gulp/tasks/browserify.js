@@ -8,7 +8,6 @@ var gulpif = require('gulp-if');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
-var browserSync = require('browser-sync');
 var sourcemaps = require('gulp-sourcemaps');
 var gzip = require('gulp-gzip');
 var browserify = require('browserify');
@@ -54,8 +53,7 @@ function browserifyTask(watch) {
             .pipe(gulpif(global.development, sourcemaps.write()))
             .pipe(gulp.dest(paths.dest))
             .pipe(gulpif(!global.development && config.tasks.browserify.gzip, gzip())) //gzip AFTER output; this should keep the original files
-            .pipe(gulpif(!global.development && config.tasks.browserify.gzip, gulp.dest(paths.dest))) //output gzipped files
-            .pipe(gulpif(global.development, browserSync.stream()));
+            .pipe(gulpif(!global.development && config.tasks.browserify.gzip, gulp.dest(paths.dest))); //output gzipped files
     }
 
     //only relevant for watchify

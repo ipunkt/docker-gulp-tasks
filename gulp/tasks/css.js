@@ -4,7 +4,6 @@ if(!config.tasks.css) return;
 
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
-var browserSync = require('browser-sync');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
@@ -26,8 +25,7 @@ gulp.task('css', function() {
         .pipe(gulpif(global.development, sourcemaps.write()))
         .pipe(gulp.dest(paths.dest)) //output files
         .pipe(gulpif(!global.development && config.tasks.css.gzip, gzip())) //gzip AFTER output; this should keep the original files
-        .pipe(gulpif(!global.development && config.tasks.css.gzip, gulp.dest(paths.dest))) //output gzipped files
-        .pipe(gulpif(global.development, browserSync.stream()))
+        .pipe(gulpif(!global.development && config.tasks.css.gzip, gulp.dest(paths.dest))); //output gzipped files
 });
 
 gulp.task('css:watch', function(){
