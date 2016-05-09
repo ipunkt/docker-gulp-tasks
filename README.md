@@ -56,10 +56,15 @@ Sourcemaps will only be generated when running `gulp build:dev`.
   "autoprefixer": {
     "browsers": ["last 3 version"]
   },
+  //choose either "sass"
   "sass": { //see https://github.com/sass/node-sass#options
     "indentedSyntax": false,
     "includePaths": []
   },
+  //or "less" depending on what you want to use
+  "less": {
+    //see https://github.com/plus3network/gulp-less#options
+  }
   "extensions": ["sass", "scss", "css"] //sourcefile extensions you want to compile.
 }
 ```
