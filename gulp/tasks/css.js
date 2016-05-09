@@ -2,9 +2,16 @@
 
 if(!config.tasks.css) return;
 
+if (typeof config.tasks.css.sass !== 'undefined'
+    && typeof config.tasks.css.less !== 'undefined') {
+    console.log("Please define either Sass OR Less in your config. Cannot use both.");
+    return;
+}
+
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var sass = require('gulp-sass');
+var less = require('gulp-less');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var cssnano = require('gulp-cssnano');
@@ -18,8 +25,12 @@ var paths = {
 
 gulp.task('css', function() {
     return gulp.src(paths.src)
+        //sourcemaps init
         .pipe(gulpif(global.development, sourcemaps.init()))
-        .pipe(sass(config.tasks.css.sass).on('error', sass.logError))
+        //sass or less
+        .pipe(gulpif (typeof config.tasks.css.sass !== 'undefined', sass(config.tasks.css.sass).on('error', sass.logError))) //switch between either sass
+        .pipe(gulpif (typeof config.tasks.css.less !== 'undefined', less(config.tasks.css.less))) //or less, as defined in config
+        //autoprefix, cssnano, finish sourcemaps, gzip and output
         .pipe(autoprefixer(config.tasks.css.autoprefixer))
         .pipe(gulpif(!global.development, cssnano({autoprefixer: false})))
         .pipe(gulpif(global.development, sourcemaps.write()))
