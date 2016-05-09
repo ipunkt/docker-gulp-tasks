@@ -1,6 +1,6 @@
 'use strict';
 
-if(!config.tasks.copy || config.tasks.copy.length < 1) return;
+if(!config.copy || config.copy.length < 1) return;
 
 var gulp   = require('gulp');
 var path = require('path');
@@ -8,10 +8,10 @@ var merge = require('merge-stream');
 
 function getPaths() {
     var paths = [];
-    config.tasks.copy.forEach(function(copyPath) {
-        var src = path.join(config.root.src, copyPath.src);
-        var dest = path.join(config.root.dest, copyPath.dest);
-        var base =  path.join(config.root.src, copyPath.base);
+    config.copy.forEach(function(copyPath) {
+        var src = path.join(projectPath, copyPath.src);
+        var dest = path.join(projectPath, copyPath.dest);
+        var base =  path.join(projectPath, copyPath.base);
         paths.push({src: src, dest: dest, base: base});
     });
 
