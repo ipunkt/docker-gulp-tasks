@@ -18,7 +18,7 @@ RUN npm install -g gulp-cli bower \
 	; npm config set cache /var/cache/npm
 
 # prepare pseudo project directory for npm_modules install
-COPY gulp /home/gulp
+RUN ["mkdir", "/home/gulp"]
 RUN ["chmod", "777", "/home/gulp"]
 
 # Use the HOME variable to find our pseudo project because npm also uses this
@@ -26,4 +26,8 @@ RUN ["chmod", "777", "/home/gulp"]
 ENV HOME=/home/gulp
 
 # Install gulp dependencies
+COPY gulp/package.json /home/gulp/
 RUN cd /home/gulp && npm install
+
+COPY gulp/gulpfile.js /home/gulp/
+COPY gulp/tasks /home/gulp/
