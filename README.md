@@ -61,10 +61,29 @@ sass: {
   autoprefixer: {
     browsers: ["last 3 version"]
   },
-  //choose either "sass"
   options: { //see https://github.com/sass/node-sass#options
     indentedSyntax: false,
     includePaths: []
+  }
+}
+```
+
+### less
+Compiles less to css files using gulp-less.
+Also contains an autoprefixer, cssnano (minify), sourcemaps and gzip.
+Sourcemaps will only be generated when running `gulp build:dev`.
+
+```js
+less: {
+  src: "YOUR_SRC_DIR",
+  dest: "YOUR_DEST_DIR",
+  gzip: true, //false if you do not want to additionally gzip your resulting css files.
+  autoprefixer: {
+    browsers: ["last 3 version"]
+  },
+  options: { //see https://github.com/plus3network/gulp-less#options
+    paths: [],
+    plugins: []
   }
 }
 ```
