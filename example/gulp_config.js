@@ -23,6 +23,14 @@ module.exports = {
       plugins: []
     }
   },
+  css: {
+    src: "src/css/**/*.css",
+    dest: "public/css",
+    gzip: true,
+    autoprefixer: {
+      browsers: ["last 3 version"]
+    }
+  },
   browserify: {
     src: "src/js/entry.js",
     dest: "public/js/bundle.js",

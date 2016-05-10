@@ -88,6 +88,20 @@ less: {
 }
 ```
 
+### css
+Just an autoprefixer, cssnano (minify) and gzip for your css files.
+
+```js
+css: {
+  src: "src/css/**/*.css",
+  dest: "public/css",
+  gzip: true,
+  autoprefixer: {
+    browsers: ["last 3 version"]
+  }
+}
+```
+
 ### browserify
 Browserify / Watchify task; can be configured to use transforms (currently only ractify).
 Also contains uglify, sourcemap and gzip.
