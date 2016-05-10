@@ -70,7 +70,10 @@ gulp.task('browserify', function() {
     return browserifyTask(false);
 });
 
+/*
+ FIXME does not work yet
 gulp.task('browserify:watch', function(){
     global.development = true;
     return browserifyTask(true);
 });
+*/

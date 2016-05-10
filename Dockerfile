@@ -30,4 +30,4 @@ COPY gulp/package.json /home/gulp/
 RUN cd /home/gulp && npm install
 
 COPY gulp/gulpfile.js /home/gulp/
-COPY gulp/tasks /home/gulp/
+COPY gulp/tasks /home/gulp/tasks

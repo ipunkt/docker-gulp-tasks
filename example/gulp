@@ -11,8 +11,10 @@ fi
 IMAGE="ipunktbs/gulp-tasks"
 USERID=$(id -u)
 GROUPID=$(id -g)
+# internal mountpoint. DO NOT CHANGE!
+WORKDIR="/home/gulp/project"
 RUNCOMMAND="docker"
-RUNPARAMETERS=("run" $INTERACTIVE "--rm" "--user" "$USERID:$GROUPID" -v "$(pwd):/home/gulp/project" "$IMAGE" )
+RUNPARAMETERS=("run" $INTERACTIVE "--rm" "--user" "$USERID:$GROUPID" -v "$(pwd):$WORKDIR" "$IMAGE" )
 
 function help {
 

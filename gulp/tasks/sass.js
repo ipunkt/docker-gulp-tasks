@@ -35,5 +35,5 @@ gulp.task('sass', function() {
 
 gulp.task('sass:watch', function(){
     global.development = true;
-    gulp.watch(paths.src, ['css']);
+    gulp.watch(paths.src, ['sass']);
 });
