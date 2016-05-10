@@ -4,6 +4,7 @@ if(!config.browserify) return;
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var chalk = require('chalk');
 var gulpif = require('gulp-if');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
@@ -58,10 +59,16 @@ function browserifyTask(watch) {
 
     //only relevant for watchify
     b.on('update', function() {
+        gutil.log('Starting', '\'' + chalk.cyan('browserify') + '\'...');
+
         var startTime = Date.now();
         bundle();
         var diffTime = Date.now() - startTime;
-        console.log("Finished 'browserify' after "+diffTime+" ms");
+
+        gutil.log(
+            'Finished', '\'' + chalk.cyan('browserify') + '\'',
+            'after', chalk.magenta(diffTime), 'ms'
+        );
     });
     return bundle();
 }
@@ -70,10 +77,7 @@ gulp.task('browserify', function() {
     return browserifyTask(false);
 });
 
-/*
- FIXME does not work yet
 gulp.task('browserify:watch', function(){
     global.development = true;
     return browserifyTask(true);
 });
-*/
