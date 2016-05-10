@@ -3,11 +3,16 @@ var requireDir = require('require-dir');
 var gulpSequence = require('gulp-sequence');
 var path = require('path');
 
-global.config = require('./project/gulp_config');
+/**
+ * Path to the user-project-volume
+ * Do not change.
+ * @type {string}
+ */
 global.projectPath = './project';
+global.config = require(projectPath + '/gulp_config');
 
 requireDir('./tasks', {recurse: true});
-require('./project/gulpfile');
+require(projectPath + '/gulpfile');
 
 var buildDev = function(cb) {
     global.development = true;
