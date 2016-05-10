@@ -1,5 +1,8 @@
-FROM node:5.11
+FROM node:5.11-slim
 MAINTAINER ipunkt Business Solutions <info@ipunkt.biz>
+
+# slim doesn't have python, so we install it
+RUN apt-get update && apt-get install -y python
 
 # Use phusion/baseimage-docker my_init script for proper pid 1 handling
 COPY scripts/my_init /
