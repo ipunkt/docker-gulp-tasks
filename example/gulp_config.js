@@ -39,6 +39,8 @@ module.exports = {
       ractify: {
         extension: "html"
       }
+    },
+    plugins: {
     }
   },
   copy: [

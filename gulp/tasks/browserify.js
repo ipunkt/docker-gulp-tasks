@@ -28,6 +28,7 @@ function browserifyTask(watch) {
         packageCache: {}
     });
 
+    //load watchify as plugin, if task is a watcherify task
     if (watch) {
         b.plugin(watchify, {
             delay: 500,
@@ -36,7 +37,15 @@ function browserifyTask(watch) {
         });
     }
 
-    //iterate through every transform in config and call them
+    //iterate through every plugin in config and load them
+    for(var plugin in config.browserify.plugins) {
+        if (config.browserify.plugins.hasOwnProperty(plugin)) {
+            var options = config.browserify.plugins[plugin];
+            b.plugin(require(plugin), options);
+        }
+    }
+
+    //iterate through every transform in config and load them
     for(var transform in config.browserify.transforms) {
         if (config.browserify.transforms.hasOwnProperty(transform)) {
             var options = config.browserify.transforms[transform];
