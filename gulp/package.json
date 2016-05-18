@@ -22,6 +22,7 @@
     "gulp-gzip": "^1.2.0",
     "gulp-uglify": "^1.5.3",
     "gulp-clean": "^0.3.2",
+    "gulp-bower": "^0.0.13",
     "browserify": "^13.0.0",
     "watchify": "^3.7.0",
     "ractive": "git://github.com/ractivejs/ractive#build",

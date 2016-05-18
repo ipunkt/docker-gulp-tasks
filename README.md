@@ -119,3 +119,13 @@ Sourcemaps will only be generated when running `gulp build:dev`.
   }
 }
 ```
+
+### bower
+builds your bower dependencies defined in your local bower.json
+
+```js
+bower: {
+    directory: "your/bower/directory",
+    dest: "your/vendor/dest"
+}
+```
