@@ -108,14 +108,24 @@ Also contains uglify, sourcemap and gzip.
 Sourcemaps will only be generated when running `gulp build:dev`.
 
 ```js
-"browserify": {
-  "src": "YOUR/ENTRY/PATH/FILE.JS",
-  "dest": "YOU/DEST/PATH/FILE.JS",
-  "gzip": true, //false if you do not want to additionally gzip your resulting css files.
-  "transforms": { //add your transforms here
-    "ractify": {
-      "extension": "html" //file extension for ractive components
+browserify: {
+  src: "YOUR/ENTRY/PATH/FILE.JS",
+  dest: "YOU/DEST/PATH/FILE.JS",
+  gzip: true, //false if you do not want to additionally gzip your resulting css files.
+  transforms: { //add your transforms here
+    ractify: {
+      extension: "html" //file extension for ractive components
     }
   }
+}
+```
+
+### bower
+builds your bower dependencies defined in your local bower.json
+
+```js
+bower: {
+    directory: "your/bower/directory",
+    dest: "your/vendor/dest"
 }
 ```

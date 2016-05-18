@@ -43,6 +43,10 @@ module.exports = {
     plugins: {
     }
   },
+  bower: {
+    directory: "./my_bower_components",
+    dest: ""
+  },
   copy: [
     {
       src: "src/static/**/*",
