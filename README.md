@@ -11,7 +11,7 @@ You need [Docker installed](https://docs.docker.com/engine/installation/) and [y
 To use the container follow these simple steps:
 
 1. copy the contents of the `example` directory to your project.
-2. change the `gulp_config.json` to meet your requirements
+2. change the `gulp_config.js` to meet your requirements
 3. make the `gulp`-File executable
 4. run `./gulp build:dev` or `./gulp watch`
 5. see gulp running for you, without having to worry with nodejs, module dependencies, complex tasks configuration
