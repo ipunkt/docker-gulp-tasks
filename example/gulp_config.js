@@ -45,7 +45,7 @@ module.exports = {
   },
   bower: {
     directory: "./my_bower_components",
-    dest: ""
+    dest: "public/vendors"
   },
   copy: [
     {

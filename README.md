@@ -123,11 +123,12 @@ browserify: {
 ```
 
 ### bower
-builds your bower dependencies defined in your local bower.json
+builds your bower dependencies defined in your local bower.json into the defined directory.
+afterwards copies them into dest.
 
 ```js
 bower: {
     directory: "vendors/.bower", //your bower install directory
-    dest: "public/vendors" //your public/lib directory
+    dest: "public/vendors" //your public/lib directory (optional)
 }
 ```
