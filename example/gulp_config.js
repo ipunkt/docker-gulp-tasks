@@ -43,9 +43,13 @@ module.exports = {
     plugins: {
     }
   },
+  webpack: {
+    //see https://webpack.github.io/docs/
+    //alternatively you can require your webpack-config: require('webpack.config.js');
+  },
   bower: {
     directory: "./my_bower_components",
-    dest: ""
+    dest: "public/vendors"
   },
   copy: [
     {

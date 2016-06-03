@@ -8,7 +8,7 @@ var path = require('path');
  * Do not change.
  * @type {string}
  */
-global.projectPath = './project';
+global.projectPath = '/home/gulp/project';
 global.config = require(projectPath + '/gulp_config');
 
 requireDir('./tasks', {recurse: true});
