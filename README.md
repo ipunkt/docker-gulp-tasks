@@ -122,6 +122,16 @@ browserify: {
 }
 ```
 
+### webpack
+configured using standard webpack configuration.
+
+```js
+webpack: {
+    //see https://webpack.github.io/docs/
+    //alternatively you can require your webpack-config: require('webpack.config.js');
+},
+```
+
 ### bower
 builds your bower dependencies defined in your local bower.json into the defined directory.
 afterwards copies them into dest.
