@@ -27,8 +27,8 @@
     "watchify": "^3.7.0",
     "webpack": "^1.13.1",
     "json-loader": "^0.5.4",
-    "ractivejs-loader": "git://github.com/ipunkt/ractivejs-loader",
     "ractive": "git://github.com/ractivejs/ractive#build",
+    "ractivejs-loader": "git://github.com/ipunkt/ractivejs-loader",
     "ractify": "^0.6.0",
     "merge-stream": "^1.0.0",
     "chalk": "^1.1.3"
