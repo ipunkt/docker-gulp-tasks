@@ -1,10 +1,9 @@
 {
-  "name": "gulp-built-project",
+  "name": "docker-gulp-tasks",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "require-dir": "^0.3.0",
 
     "gulp": "^3.9.0",
@@ -27,8 +26,8 @@
     "watchify": "^3.7.0",
     "webpack": "^1.13.1",
     "json-loader": "^0.5.4",
-    "ractive": "git://github.com/ractivejs/ractive#build",
-    "ractivejs-loader": "git://github.com/ipunkt/ractivejs-loader",
+    "ractive": "git://github.com/ractivejs/ractive.git#e5691542cdf007dc485ee4240d59427b7894faf4",
+    "ractivejs-loader": "git://github.com/ipunkt/ractivejs-loader.git",
     "ractify": "^0.6.0",
     "merge-stream": "^1.0.0",
     "chalk": "^1.1.3"
