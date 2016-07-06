@@ -1,7 +1,9 @@
 {
   "name": "docker-gulp-tasks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
+  "author": "ipunkt Business Solutions / info@ipunkt.biz",
+  "license": "MIT",
   "main": "gulpfile.js",
   "dependencies": {
     "require-dir": "^0.3.0",
@@ -26,8 +28,9 @@
     "watchify": "^3.7.0",
     "webpack": "^1.13.1",
     "json-loader": "^0.5.4",
-    "ractive": "git://github.com/ractivejs/ractive.git#e5691542cdf007dc485ee4240d59427b7894faf4",
-    "ractivejs-loader": "git://github.com/ipunkt/ractivejs-loader.git",
+    "ractive": "git://github.com/ractivejs/ractive#build",
+    "rcu": "edge",
+    "ractivejs-loader": "git://github.com/ipunkt/ractivejs-loader",
     "ractify": "^0.6.0",
     "merge-stream": "^1.0.0",
     "chalk": "^1.1.3"
@@ -36,7 +39,5 @@
     "build": "gulp build",
     "build:dev": "gulp build:dev",
     "watch": "gulp watch"
-  },
-  "author": "ipunkt Business Solutions / info@ipunkt.biz",
-  "license": "MIT"
+  }
 }
