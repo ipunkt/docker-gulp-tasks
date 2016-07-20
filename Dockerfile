@@ -1,4 +1,4 @@
-FROM node:5.11-slim
+FROM node:6.3-slim
 MAINTAINER ipunkt Business Solutions <info@ipunkt.biz>
 
 # slim doesn't have python & git, so we install it
