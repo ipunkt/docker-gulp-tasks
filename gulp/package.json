@@ -1,6 +1,6 @@
 {
   "name": "docker-gulp-tasks",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "complete docker container for frontend build tasks with gulp and ractivejs",
   "author": "ipunkt Business Solutions / info@ipunkt.biz",
   "homepage": "http://www.ipunkt.biz/",
@@ -22,7 +22,6 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-cssnano": "^2.1.2",
     "gulp-gzip": "^1.2.0",
-    "gulp-uglify": "^1.5.3",
     "gulp-clean": "^0.3.2",
     "gulp-bower": "^0.0.13",
     "ractive": "git://github.com/ractivejs/ractive#build",
@@ -35,7 +34,8 @@
 
     "browserify": "^13.0.0",
     "ractify": "^0.6.0",
-    "watchify": "^3.7.0"
+    "watchify": "^3.7.0",
+    "gulp-uglify": "^1.5.3"
   },
   "scripts": {
     "build": "gulp build",
