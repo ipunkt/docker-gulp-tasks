@@ -10,17 +10,46 @@ function webpackTask(watch, callback) {
     //setup webpack
     var webpackConfig = config.webpack;
 
-    if (!global.development) {
-        if (typeof webpackConfig.plugins === 'undefined') {
-            webpackConfig.plugins = [];
-        }
+    if (typeof webpackConfig.plugins === 'undefined') {
+        webpackConfig.plugins = [];
+    }
 
+    if (global.development) {
         webpackConfig.plugins.push(
-            new webpack.optimize.UglifyJsPlugin({
-                compress: { warnings: false }
+            new webpack.LoaderOptionsPlugin({
+                minimize: false,
+                debug: true
             }),
-            new webpack.optimize.DedupePlugin()
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: true
+                }
+            })
         );
+    } else {
+        webpackConfig.plugins.push(
+            new webpack.LoaderOptionsPlugin({
+                minimize: true,
+                debug: false
+            }),
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: false
+                },
+                output: {
+                    comments: false
+                },
+                sourceMap: false
+            }),
+            new webpack.optimize.DedupePlugin(),
+            new webpack.optimize.OccurrenceOrderPlugin()
+        );
+
+        /**
+         * Deactivate caching for production-builds
+         * @type {boolean}
+         */
+        webpackConfig.cache = false;
     }
 
     var w = webpack(webpackConfig);
