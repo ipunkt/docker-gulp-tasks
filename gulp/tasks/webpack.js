@@ -10,24 +10,47 @@ function webpackTask(watch, callback) {
     //setup webpack
     var webpackConfig = config.webpack;
 
-    if (typeof webpackConfig.plugins === 'undefined') {
-        webpackConfig.plugins = [];
+    if (Array.isArray(webpackConfig)) {
+        webpackConfig.map(function(conf) {
+            return setupConfig(conf);
+        });
+    } else {
+        webpackConfig = setupConfig(webpackConfig);
+    }
+
+    var w = webpack(webpackConfig);
+
+    function webpackCallback(err, stats) {
+        if (err) throw new gutil.PluginError("webpack", err);
+        gutil.log("[webpack]", stats.toString({colors: true, childen: false, assets: false, modules: false, chunkModules: false}));
+        if (!watch) callback();
+    }
+
+    //run webpack either in watch mode or normal (once)
+    if (watch) {
+        w.watch({
+            aggregateTimeout: 500,
+            poll: 500
+        }, webpackCallback);
+    } else {
+        w.run(webpackCallback);
+    }
+}
+
+function setupConfig(conf) {
+    if (typeof conf.plugins === 'undefined') {
+        conf.plugins = [];
     }
 
     if (global.development) {
-        webpackConfig.plugins.push(
+        conf.plugins.push(
             new webpack.LoaderOptionsPlugin({
                 minimize: false,
                 debug: true
-            }),
-            new webpack.optimize.UglifyJsPlugin({
-                compress: {
-                    warnings: true
-                }
             })
         );
     } else {
-        webpackConfig.plugins.push(
+        conf.plugins.push(
             new webpack.LoaderOptionsPlugin({
                 minimize: true,
                 debug: false
@@ -49,26 +72,10 @@ function webpackTask(watch, callback) {
          * Deactivate caching for production-builds
          * @type {boolean}
          */
-        webpackConfig.cache = false;
+        conf.cache = false;
     }
 
-    var w = webpack(webpackConfig);
-
-    function webpackCallback(err, stats) {
-        if (err) throw new gutil.PluginError("webpack", err);
-        gutil.log("[webpack]", stats.toString({colors: true, childen: false, assets: false, modules: false, chunkModules: false}));
-        if (!watch) callback();
-    }
-
-    //run webpack either in watch mode or normal (once)
-    if (watch) {
-        w.watch({
-            aggregateTimeout: 500,
-            poll: 500
-        }, webpackCallback);
-    } else {
-        w.run(webpackCallback);
-    }
+    return conf;
 }
 
 
