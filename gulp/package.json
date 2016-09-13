@@ -24,6 +24,7 @@
     "gulp-gzip": "^1.2.0",
     "gulp-clean": "^0.3.2",
     "gulp-bower": "^0.0.13",
+    "gulp-concat": "^2.6.0",
     "ractive": "git://github.com/ractivejs/ractive#build",
     "rcu": "edge",
     "webpack": "^2.1.0-beta",
