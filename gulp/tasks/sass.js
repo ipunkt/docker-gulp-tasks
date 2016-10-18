@@ -10,6 +10,8 @@ var autoprefixer = require('gulp-autoprefixer');
 var cssnano = require('gulp-cssnano');
 var gzip = require('gulp-gzip');
 var path = require('path');
+const sassError  = require('gulp-sass-error').gulpSassError;
+const throwError = true;
 
 var paths = {
     src: path.join(projectPath, config.sass.src),
@@ -22,7 +24,7 @@ gulp.task('sass', function() {
         .pipe(gulpif(global.development, sourcemaps.init()))
 
         //sass
-        .pipe(sass(config.sass.options).on('error', sass.logError)) //switch between either sass
+        .pipe(sass(config.sass.options).on('error', sassError(throwError))) //switch between either sass
 
         //autoprefix, cssnano, finish sourcemaps, gzip and output
         .pipe(autoprefixer(config.sass.autoprefixer))
