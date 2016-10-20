@@ -2,7 +2,7 @@ module.exports = {
   sass: {
     src: "src/scss/**/*.{sass,scss,css}",
     dest: "public/css",
-    manifest: "config",
+    manifest: "config", //target folder for the gulp-rev rev-manifest.json
     revision: false,
     gzip: true,
     autoprefixer: {
