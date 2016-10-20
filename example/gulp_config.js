@@ -2,6 +2,8 @@ module.exports = {
   sass: {
     src: "src/scss/**/*.{sass,scss,css}",
     dest: "public/css",
+    manifest: "config",
+    revision: false,
     gzip: true,
     autoprefixer: {
       browsers: ["last 3 version"]
