@@ -37,7 +37,9 @@
     "browserify": "^13.0.0",
     "ractify": "^0.6.0",
     "watchify": "^3.7.0",
-    "gulp-uglify": "^1.5.3"
+    "gulp-uglify": "^1.5.3",
+
+    "gulp-rev": "^7.1.2"
   },
   "scripts": {
     "build": "gulp build",
