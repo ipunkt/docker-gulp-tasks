@@ -19,14 +19,19 @@ const throwError = true;
 
 var paths = {
     src: path.join(projectPath, config.sass.src),
-    dest: path.join(projectPath, config.sass.dest),
-    manifest: path.join(projectPath, config.sass.manifest)
+    dest: path.join(projectPath, config.sass.dest)
 };
+
+if (typeof config.sass.manifest !== 'undefined') {
+    paths['manifest'] = path.join(projectPath, config.sass.manifest);
+}
 
 gulp.task('sass', function() {
 
     //overwrite rev-manifest as empty json-object
-    fs.writeFileSync(path.join(paths.manifest, 'rev-manifest.json'), '{}');
+    if (typeof paths.manifest !== 'undefined') {
+        fs.writeFileSync(path.join(paths.manifest, 'rev-manifest.json'), '{}');
+    }
 
     return gulp.src(paths.src)
         //sourcemaps init
