@@ -26,7 +26,7 @@
     "gulp-clean": "^0.3.2",
     "gulp-bower": "^0.0.13",
     "gulp-concat": "^2.6.0",
-    "ractive": "0.8.0",
+    "ractive": "^0.8.0",
     "rcu": "edge",
     "webpack": "^2.1.0-beta",
     "json-loader": "^0.5.4",
