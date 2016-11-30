@@ -64,7 +64,6 @@ function setupConfig(conf) {
                 },
                 sourceMap: false
             }),
-            new webpack.optimize.DedupePlugin(),
             new webpack.optimize.OccurrenceOrderPlugin()
         );
 
