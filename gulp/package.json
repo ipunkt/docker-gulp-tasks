@@ -28,7 +28,7 @@
     "gulp-concat": "^2.6.0",
     "ractive": "^0.8.0",
     "rcu": "^0.9.0",
-    "webpack": "^2.2.0-rc",
+    "webpack": "2.2.1",
     "json-loader": "^0.5.4",
     "ractivejs-loader": "git://github.com/ipunkt/ractivejs-loader",
     "merge-stream": "^1.0.0",
