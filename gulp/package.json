@@ -39,7 +39,13 @@
     "watchify": "^3.7.0",
     "gulp-uglify": "^1.5.3",
 
-    "gulp-rev": "^7.1.2"
+    "gulp-rev": "^7.1.2",
+
+    "karma": "^1.7.0",
+    "karma-jasmine": "^1.1.0",
+    "jasmine-core": "^2.6.2",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "phantomjs-prebuilt": "^2.1.14"
   },
   "scripts": {
     "build": "gulp build",

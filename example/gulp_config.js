@@ -62,5 +62,8 @@ module.exports = {
   ],
   clean: {
     path: "public/"
+  },
+  test: {
+    configFile: "karma.config.js"
   }
 };
