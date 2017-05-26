@@ -2,7 +2,7 @@ FROM node:6.3-slim
 MAINTAINER ipunkt Business Solutions <info@ipunkt.biz>
 
 # slim doesn't have python & git, so we install it
-RUN apt-get update && apt-get install -y python git
+RUN apt-get update && apt-get install -y python git && apt-get install -y bzip2
 
 # configure git, setting up a user
 RUN git config --system user.name Docker && git config --system user.email docker@localhost
