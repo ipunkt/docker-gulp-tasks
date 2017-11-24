@@ -57,7 +57,9 @@ function setupConfig(conf) {
             }),
             new webpack.optimize.UglifyJsPlugin({
                 compress: {
-                    warnings: false
+                    warnings: false,
+                    unused: false,
+                    dead_code: false
                 },
                 output: {
                     comments: false
