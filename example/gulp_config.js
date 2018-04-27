@@ -60,6 +60,18 @@ module.exports = {
       dest: "public/"
     }
   ],
+  rename: [
+      {
+          src: "src/js/myrandom_app.js",
+          rename: "js/app.js",
+          dest: "public/"
+      },
+      {
+          src: "src/js/*.js",
+          rename: {suffix: "-script"},
+          dest: "public/"
+      }
+  ],
   clean: {
     path: "public/"
   },
